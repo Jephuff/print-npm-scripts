@@ -1,5 +1,5 @@
 {
-  "name": "print-pkg-scripts",
+  "name": "runrun",
   "version": "0.1.1",
   "description": "",
   "main": "index.js",
@@ -15,10 +15,11 @@
     "url": "git@github.com:Jephuff/print-npm-scripts.git"
   },
   "bin": {
-    "print-pkg-scripts": "./dist/index.js"
+    "runrun": "./index.js"
   },
   "devDependencies": {
     "ansi-colors": "3.2.3",
+    "enquirer": "2.3.0",
     "execa": "1.0.0",
     "read-pkg-up": "^4.0.0",
     "@zeit/ncc": "0.14.0"
