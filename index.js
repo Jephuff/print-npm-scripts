@@ -24,7 +24,7 @@ const displayedPrompt = inquirer.prompt([
     message: 'Select script to run (or press [esc] to exit)',
     choices: Object.entries(package.scripts).map(
       ([scriptName, scriptContents]) => ({
-        name: `${colors.cyan(scriptName)} => ${colors.green(scriptContents)}`,
+        name: `${colors.cyan(scriptName)} =>\n    ${colors.green(scriptContents)}`,
         value: scriptName,
       }),
     ),
