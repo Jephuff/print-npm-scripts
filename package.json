@@ -15,6 +15,7 @@
     "print-pkg-scripts": "./index.js"
   },
   "dependencies": {
+    "inquirer": "6.2.2",
     "read-pkg-up": "^4.0.0"
   }
 }
