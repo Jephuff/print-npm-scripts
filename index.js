@@ -14,7 +14,7 @@ if (
 }
 
 const readline = require('readline');
-const inquirer = require('inquirer');
+const inquirer = require('@cheapsteak/inquirer');
 const colors = require('ansi-colors');
 
 const displayedPrompt = inquirer.prompt([

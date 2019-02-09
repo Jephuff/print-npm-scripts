@@ -15,9 +15,9 @@
     "print-pkg-scripts": "./index.js"
   },
   "dependencies": {
+    "@cheapsteak/inquirer": "6.2.3-alpha.1",
     "ansi-colors": "3.2.3",
     "execa": "1.0.0",
-    "inquirer": "6.2.2",
     "read-pkg-up": "^4.0.0"
   }
 }
