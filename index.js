@@ -13,6 +13,35 @@ if (
   process.exit();
 }
 
-Object.entries(package.scripts).forEach(([key, script]) => {
-  console.log(`${key} => ${script}`);
+const readline = require('readline');
+const inquirer = require('inquirer');
+const colors = require('ansi-colors');
+
+const displayedPrompt = inquirer.prompt([
+  {
+    type: 'list',
+    name: 'scriptName',
+    message: 'Select script to run (or press [esc] to exit)',
+    choices: Object.entries(package.scripts).map(
+      ([scriptName, scriptContents]) => ({
+        name: `${colors.cyan(scriptName)} => ${colors.green(scriptContents)}`,
+        value: scriptName,
+      }),
+    ),
+  },
+]);
+
+readline.emitKeypressEvents(process.stdin);
+
+process.stdin.on('keypress', (ch, key) => {
+  if (key && key.name === 'escape') {
+    displayedPrompt.ui.close();
+  }
+});
+
+const execa = require('execa');
+
+displayedPrompt.then(({ scriptName }) => {
+  const { stdout, stdin } = execa('npm', ['run', scriptName]);
+  stdout.pipe(process.stdout);
 });
