@@ -15,15 +15,16 @@ if (
 
 const readline = require('readline');
 const inquirer = require('inquirer');
+const colors = require('ansi-colors');
 
 const displayedPrompt = inquirer.prompt([
   {
     type: 'list',
     name: 'scriptName',
-    message: 'Select a script to run (or press Esc to exit)',
+    message: 'Select script to run (or press [esc] to exit)',
     choices: Object.entries(package.scripts).map(
       ([scriptName, scriptContents]) => ({
-        name: `${scriptName} => ${scriptContents}`,
+        name: `${colors.cyan(scriptName)} => ${colors.green(scriptContents)}`,
         value: scriptName,
       }),
     ),
