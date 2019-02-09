@@ -38,6 +38,9 @@ process.stdin.on('keypress', (ch, key) => {
   }
 });
 
+const execa = require('execa');
+
 displayedPrompt.then(({ scriptName }) => {
-  console.log(scriptName);
+  const { stdout, stdin } = execa('npm', ['run', scriptName]);
+  stdout.pipe(process.stdout);
 });
