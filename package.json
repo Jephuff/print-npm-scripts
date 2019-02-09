@@ -7,6 +7,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/Jephuff/print-npm-scripts.git"
+  },
   "bin": {
     "print-pkg-scripts": "./index.js"
   },
