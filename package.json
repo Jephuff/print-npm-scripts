@@ -3,7 +3,10 @@
   "version": "0.1.1",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "ncc build index.js",
+    "prepublish": "npm run build"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -12,12 +15,12 @@
     "url": "git@github.com:Jephuff/print-npm-scripts.git"
   },
   "bin": {
-    "print-pkg-scripts": "./index.js"
+    "print-pkg-scripts": "./dist/index.js"
   },
-  "dependencies": {
+  "devDependencies": {
     "ansi-colors": "3.2.3",
     "execa": "1.0.0",
-    "inquirer": "6.2.2",
-    "read-pkg-up": "^4.0.0"
+    "read-pkg-up": "^4.0.0",
+    "@zeit/ncc": "0.14.0"
   }
 }
