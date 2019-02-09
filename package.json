@@ -1,0 +1,16 @@
+{
+  "name": "print-pkg-scripts",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "print-pkg-scripts": "./index.js"
+  },
+  "dependencies": {
+    "read-pkg-up": "^4.0.0"
+  }
+}
