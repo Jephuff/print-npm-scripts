@@ -1,5 +1,5 @@
 {
-  "name": "runrun",
+  "name": "runrunrun",
   "version": "0.1.1",
   "description": "",
   "main": "index.js",
@@ -15,7 +15,7 @@
     "url": "git@github.com:Jephuff/print-npm-scripts.git"
   },
   "bin": {
-    "runrun": "./index.js"
+    "runrun": "dist/index.js"
   },
   "devDependencies": {
     "ansi-colors": "3.2.3",
