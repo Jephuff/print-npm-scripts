@@ -15,25 +15,16 @@ if (
 
 const readline = require("readline");
 const colors = require("ansi-colors");
-const { Select } = require("enquirer");
+const { prompt, Select } = require("enquirer");
 
-const prompt = new Select({
-  styles: {
-    em: colors.bold
-  },
-  limit: Math.floor(process.stdout.rows / 2) - 2,
-  name: "scriptName",
-  heading: (message, choice, i) => console.log(message, choice, i),
-  message: "Select script to run (or press [esc] to exit)",
-  choices: Object.entries(package.scripts).map(
-    ([scriptName, scriptContents]) => ({
-      name: `${colors.cyan(scriptName)} => \n    ${colors.green(
-        scriptContents
-      )}`,
-      value: scriptName
-    })
-  )
-});
+const choices = Object.entries(package.scripts).map(
+  ([scriptName, scriptContents]) => ({
+    message: `${colors.cyan(scriptName)} => \n    ${colors.green(
+      scriptContents
+    )}`,
+    name: scriptName
+  })
+);
 
 readline.emitKeypressEvents(process.stdin);
 
@@ -45,8 +36,19 @@ process.stdin.on("keypress", (ch, key) => {
 
 const execa = require("execa");
 
-prompt
-  .run()
+prompt([
+  {
+    type: 'select',
+    styles: {
+      em: colors.bold
+    },
+    limit: Math.floor(process.stdout.rows / 2) - 2,
+    name: "scriptName",
+    heading: (message, choice, i) => console.log(message, choice, i),
+    message: "Select script to run (or press [esc] to exit)",
+    choices,
+  }
+])
   .then(({ scriptName }) => {
     const { stdout, stdin } = execa("npm", ["run", scriptName]);
     stdout.pipe(process.stdout);
