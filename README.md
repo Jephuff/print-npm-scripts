@@ -1,18 +1,29 @@
-# runrunrun
+# kankan
 
 List and run npm scripts.
 
 ## Usage
 
+Directly, via npx
+
 ```bash
-npx runrunrun
+npx kankan
 ```
-![](./assets/screencap-npx.gif)
 
+## Installation
 
+Install globally to directly use call `kankan` or its alias, `runrun`
 
 ```bash
-npm i -g runrunrun
+npm i -g kankan
+```
+
+Then just run
+```bash
+kankan
+```
+or
+
+```bash
 runrun
 ```
-![](./assets/screencap-npm-i.gif)
